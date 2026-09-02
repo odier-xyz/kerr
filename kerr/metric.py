@@ -311,8 +311,9 @@ def geodesic(
 
     sin4θ = sin2θ * sin2θ
 
-    if sinθ < 1.0e-8:
-        sinθ = 1.0e-8
+    if abs(sinθ) < 1.0e-8:
+
+        sinθ = math.copysign(1.0e-8, sinθ)
         sin2θ = 1.0e-16
         sin4θ = 1.0e-32
 
